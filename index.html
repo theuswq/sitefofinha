@@ -38,6 +38,116 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
+    <!-- FAB: Explorar Seções -->
+    <button id="exploreFab" class="fab-explore" aria-label="Explorar seções" title="Explorar Seções">
+        <i class="fa-solid fa-layer-group"></i>
+    </button>
+
+    <!-- Mobile Fullscreen Drawer -->
+    <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <div class="drawer-overlay" id="drawerOverlay"></div>
+        <div class="drawer-panel">
+            <div class="drawer-header">
+                <div class="drawer-logo">
+                    <i class="fa-solid fa-cow"></i>
+                    <span>Yogur<strong>Vida</strong></span>
+                </div>
+                <button id="drawerCloseBtn" class="drawer-close-btn" aria-label="Fechar menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <nav class="drawer-nav">
+                <a href="#home" class="drawer-link" data-section="home">
+                    <span class="drawer-icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="drawer-label">Início</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#sobre" class="drawer-link" data-section="sobre">
+                    <span class="drawer-icon"><i class="fa-solid fa-industry"></i></span>
+                    <span class="drawer-label">Empresa</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#legislacao" class="drawer-link" data-section="legislacao">
+                    <span class="drawer-icon"><i class="fa-solid fa-book-medical"></i></span>
+                    <span class="drawer-label">Legislação</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#marcos-legais" class="drawer-link" data-section="marcos-legais">
+                    <span class="drawer-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+                    <span class="drawer-label">Marcos Legais</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#manual-bpf" class="drawer-link" data-section="manual-bpf">
+                    <span class="drawer-icon"><i class="fa-solid fa-clipboard-list"></i></span>
+                    <span class="drawer-label">Manual BPF</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#higiene-pessoal" class="drawer-link" data-section="higiene-pessoal">
+                    <span class="drawer-icon"><i class="fa-solid fa-hand-sparkles"></i></span>
+                    <span class="drawer-label">Higiene Pessoal</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#instalacoes" class="drawer-link" data-section="instalacoes">
+                    <span class="drawer-icon"><i class="fa-solid fa-building"></i></span>
+                    <span class="drawer-label">Instalações</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#processos" class="drawer-link" data-section="processos">
+                    <span class="drawer-icon"><i class="fa-solid fa-gears"></i></span>
+                    <span class="drawer-label">Processos</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#processo-fluxograma" class="drawer-link" data-section="processo-fluxograma">
+                    <span class="drawer-icon"><i class="fa-solid fa-diagram-project"></i></span>
+                    <span class="drawer-label">Fabricação do Iogurte</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#higienizacao" class="drawer-link" data-section="higienizacao">
+                    <span class="drawer-icon"><i class="fa-solid fa-soap"></i></span>
+                    <span class="drawer-label">Limpeza e Sanitização</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#controle-pragas" class="drawer-link" data-section="controle-pragas">
+                    <span class="drawer-icon"><i class="fa-solid fa-bug-slash"></i></span>
+                    <span class="drawer-label">Controle de Pragas</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#gestao-residuos" class="drawer-link" data-section="gestao-residuos">
+                    <span class="drawer-icon"><i class="fa-solid fa-recycle"></i></span>
+                    <span class="drawer-label">Gestão de Resíduos</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#qualidade-dashboard" class="drawer-link" data-section="qualidade-dashboard">
+                    <span class="drawer-icon"><i class="fa-solid fa-chart-line"></i></span>
+                    <span class="drawer-label">Controle de Qualidade</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#sustentabilidade" class="drawer-link" data-section="sustentabilidade">
+                    <span class="drawer-icon"><i class="fa-solid fa-leaf"></i></span>
+                    <span class="drawer-label">Sustentabilidade</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#conclusao" class="drawer-link" data-section="conclusao">
+                    <span class="drawer-icon"><i class="fa-solid fa-flag-checkered"></i></span>
+                    <span class="drawer-label">Conclusão</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+                <a href="#referencias" class="drawer-link" data-section="referencias">
+                    <span class="drawer-icon"><i class="fa-solid fa-book-open"></i></span>
+                    <span class="drawer-label">Referências</span>
+                    <i class="fa-solid fa-chevron-right drawer-arrow"></i>
+                </a>
+            </nav>
+            <div class="drawer-footer">
+                <button id="drawerThemeToggle" class="drawer-theme-btn">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                    <span class="drawer-theme-label">Alternar Tema</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Top Navigation Header -->
     <header class="main-header">
         <div class="header-container">
@@ -69,6 +179,28 @@
             </div>
         </div>
     </header>
+
+    <!-- Mobile Horizontal Nav Bar -->
+    <div id="mobileNavBar" class="mobile-nav-bar" role="navigation" aria-label="Navegação rápida mobile">
+        <div class="mobile-nav-scroll">
+            <a href="#home" class="mobile-nav-pill active" data-section="home"><i class="fa-solid fa-house"></i> Início</a>
+            <a href="#sobre" class="mobile-nav-pill" data-section="sobre"><i class="fa-solid fa-industry"></i> Empresa</a>
+            <a href="#legislacao" class="mobile-nav-pill" data-section="legislacao"><i class="fa-solid fa-book-medical"></i> Legislação</a>
+            <a href="#marcos-legais" class="mobile-nav-pill" data-section="marcos-legais"><i class="fa-solid fa-scale-balanced"></i> Marcos</a>
+            <a href="#manual-bpf" class="mobile-nav-pill" data-section="manual-bpf"><i class="fa-solid fa-clipboard-list"></i> Manual BPF</a>
+            <a href="#higiene-pessoal" class="mobile-nav-pill" data-section="higiene-pessoal"><i class="fa-solid fa-hand-sparkles"></i> Higiene</a>
+            <a href="#instalacoes" class="mobile-nav-pill" data-section="instalacoes"><i class="fa-solid fa-building"></i> Instalações</a>
+            <a href="#processos" class="mobile-nav-pill" data-section="processos"><i class="fa-solid fa-gears"></i> Processos</a>
+            <a href="#processo-fluxograma" class="mobile-nav-pill" data-section="processo-fluxograma"><i class="fa-solid fa-diagram-project"></i> Fabricação</a>
+            <a href="#higienizacao" class="mobile-nav-pill" data-section="higienizacao"><i class="fa-solid fa-soap"></i> Limpeza</a>
+            <a href="#controle-pragas" class="mobile-nav-pill" data-section="controle-pragas"><i class="fa-solid fa-bug-slash"></i> Pragas</a>
+            <a href="#gestao-residuos" class="mobile-nav-pill" data-section="gestao-residuos"><i class="fa-solid fa-recycle"></i> Resíduos</a>
+            <a href="#qualidade-dashboard" class="mobile-nav-pill" data-section="qualidade-dashboard"><i class="fa-solid fa-chart-line"></i> Qualidade</a>
+            <a href="#sustentabilidade" class="mobile-nav-pill" data-section="sustentabilidade"><i class="fa-solid fa-leaf"></i> Sustentabilidade</a>
+            <a href="#conclusao" class="mobile-nav-pill" data-section="conclusao"><i class="fa-solid fa-flag-checkered"></i> Conclusão</a>
+            <a href="#referencias" class="mobile-nav-pill" data-section="referencias"><i class="fa-solid fa-book-open"></i> Referências</a>
+        </div>
+    </div>
 
     <!-- MAIN CONTAINER -->
     <main>
@@ -261,7 +393,7 @@
                 </div>
 
                 <!-- Cards dos Principais Marcos Legais Aplicados -->
-                <div class="legislacao-cards-grid">
+                <div id="marcos-legais" class="legislacao-cards-grid">
                     
                     <!-- Card 1: Decreto-Lei nº 986/1969 -->
                     <div class="leg-card-item glass-card" data-aos="fade-up" data-aos-delay="150" onclick="openPdfViewer()">

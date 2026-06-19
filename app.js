@@ -43,21 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    mobileMenuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        const icon = mobileMenuBtn.querySelector('i');
-        if (navMenu.classList.contains('active')) {
-            icon.className = 'fa-solid fa-xmark';
-        } else {
-            icon.className = 'fa-solid fa-bars';
-        }
-    });
+    // O clique no hamburguer agora abre o drawer fullscreen (adicionado mais abaixo)
+    // Mantemos o toggle do navMenu como fallback desktop
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            // Em desktop (nav-menu visível), toggle normal
+            // Em mobile, o drawer será aberto pelo novo listener adicionado depois
+        });
+    }
 
     // Fechar menu mobile ao clicar em um link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            mobileMenuBtn.querySelector('i').className = 'fa-solid fa-bars';
+            if (navMenu) navMenu.classList.remove('active');
         });
     });
 
@@ -566,4 +564,155 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // =====================================================================
+    // MOBILE DRAWER — Menu hambúrguer fullscreen com blur
+    // =====================================================================
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+    const drawerThemeToggle = document.getElementById('drawerThemeToggle');
+
+    function openDrawer() {
+        if (!mobileDrawer) return;
+        mobileDrawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        // Focar no primeiro link para acessibilidade
+        if (drawerCloseBtn) drawerCloseBtn.focus();
+    }
+
+    function closeDrawer() {
+        if (!mobileDrawer) return;
+        mobileDrawer.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    // Abrir drawer ao clicar no botão hambúrguer
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            openDrawer();
+        });
+    }
+
+    // Fechar ao clicar no overlay ou no botão X
+    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+    if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
+
+    // Fechar ao clicar em um link do drawer
+    drawerLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeDrawer();
+        });
+    });
+
+    // Fechar com Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('open')) {
+            closeDrawer();
+        }
+    });
+
+    // Alternar tema a partir do botão no drawer
+    if (drawerThemeToggle) {
+        drawerThemeToggle.addEventListener('click', () => {
+            const activeTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = activeTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateChartTheme(newTheme);
+        });
+    }
+
+    // =====================================================================
+    // FAB — Botão Explorar Seções (abre o drawer)
+    // =====================================================================
+    const exploreFab = document.getElementById('exploreFab');
+
+    if (exploreFab) {
+        // Mostrar FAB após scroll inicial
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 200) {
+                exploreFab.classList.add('visible');
+            } else {
+                exploreFab.classList.remove('visible');
+            }
+        });
+
+        exploreFab.addEventListener('click', () => {
+            openDrawer();
+            // Animação de feedback tátil
+            exploreFab.style.transform = 'scale(0.88)';
+            setTimeout(() => {
+                exploreFab.style.transform = '';
+            }, 150);
+        });
+    }
+
+    // =====================================================================
+    // MOBILE NAV BAR — Pill ativo via Intersection Observer + auto-scroll
+    // =====================================================================
+    const mobileNavPills = document.querySelectorAll('.mobile-nav-pill');
+
+    function updateMobileNavPill(sectionId) {
+        mobileNavPills.forEach(pill => {
+            pill.classList.remove('active');
+            if (pill.getAttribute('data-section') === sectionId) {
+                pill.classList.add('active');
+                // Auto-scroll para centrar o pill ativo na barra
+                const navScroll = document.querySelector('.mobile-nav-scroll');
+                if (navScroll) {
+                    const pillLeft = pill.offsetLeft;
+                    const pillWidth = pill.offsetWidth;
+                    const scrollCenter = pillLeft - navScroll.offsetWidth / 2 + pillWidth / 2;
+                    navScroll.scrollTo({ left: scrollCenter, behavior: 'smooth' });
+                }
+            }
+        });
+
+        // Atualizar drawer links também
+        drawerLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-section') === sectionId) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Observer para seções — atualiza pill ativo automaticamente no scroll
+    const allSections = document.querySelectorAll('[id]');
+    const sectionIds = new Set([
+        'home', 'sobre', 'legislacao', 'marcos-legais', 'manual-bpf',
+        'higiene-pessoal', 'instalacoes', 'processos', 'processo-fluxograma',
+        'higienizacao', 'controle-pragas', 'gestao-residuos',
+        'qualidade-dashboard', 'sustentabilidade', 'conclusao', 'referencias'
+    ]);
+
+    const mobileNavObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && sectionIds.has(entry.target.id)) {
+                updateMobileNavPill(entry.target.id);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '-10% 0px -75% 0px'
+    });
+
+    allSections.forEach(section => {
+        if (sectionIds.has(section.id)) {
+            mobileNavObserver.observe(section);
+        }
+    });
+
+    // Clique nos pills da nav mobile
+    mobileNavPills.forEach(pill => {
+        pill.addEventListener('click', (e) => {
+            const sectionId = pill.getAttribute('data-section');
+            // Feedback visual imediato
+            mobileNavPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+        });
+    });
+
 });
+
