@@ -416,4 +416,154 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 3000);
 
+    // ==========================================================================
+    // 9. LÓGICA DO VISUALIZADOR DE PDF DO MANUAL DE LEGISLAÇÃO
+    // ==========================================================================
+    let pdfZoomLevel = 1.0;
+    let pdfCurrentPage = 1;
+    const pdfTotalPages = 9;
+
+    window.openPdfViewer = () => {
+        const modal = document.getElementById('pdfViewerModal');
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            pdfCurrentPage = 1;
+            pdfZoomLevel = 1.0;
+            applyPdfZoom();
+            updatePdfPageVisibility();
+            
+            // Log access message
+            console.log("Você está visualizando o Manual Oficial de Legislação e Conformidade da YogurVida.");
+        }
+    };
+
+    window.closePdfViewer = () => {
+        const modal = document.getElementById('pdfViewerModal');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            if (document.fullscreenElement) {
+                document.exitFullscreen().catch(() => {});
+            }
+        }
+    };
+
+    window.prevPdfPage = () => {
+        if (pdfCurrentPage > 1) {
+            pdfCurrentPage--;
+            updatePdfPageVisibility();
+        }
+    };
+
+    window.nextPdfPage = () => {
+        if (pdfCurrentPage < pdfTotalPages) {
+            pdfCurrentPage++;
+            updatePdfPageVisibility();
+        }
+    };
+
+    window.zoomInPdf = () => {
+        if (pdfZoomLevel < 2.0) {
+            pdfZoomLevel = +(pdfZoomLevel + 0.1).toFixed(1);
+            applyPdfZoom();
+        }
+    };
+
+    window.zoomOutPdf = () => {
+        if (pdfZoomLevel > 0.5) {
+            pdfZoomLevel = +(pdfZoomLevel - 0.1).toFixed(1);
+            applyPdfZoom();
+        }
+    };
+
+    window.togglePdfFullscreen = () => {
+        const container = document.querySelector('.pdf-modal-container');
+        if (container) {
+            if (!document.fullscreenElement) {
+                container.requestFullscreen().catch(err => {
+                    console.error("Erro ao entrar em tela cheia:", err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    };
+
+    window.printPdfDocument = () => {
+        window.print();
+    };
+
+    window.syncPdfInputs = (input, field) => {
+        input.setAttribute('value', input.value);
+    };
+
+    function updatePdfPageVisibility() {
+        const pages = document.querySelectorAll('.pdf-page');
+        pages.forEach((page, index) => {
+            if (index === pdfCurrentPage - 1) {
+                page.classList.add('active');
+            } else {
+                page.classList.remove('active');
+            }
+        });
+        
+        // Atualizar os indicadores de página na toolbar
+        const currentInd = document.getElementById('currentPageNum');
+        const prevBtn = document.getElementById('prevPageBtn');
+        const nextBtn = document.getElementById('nextPageBtn');
+        
+        if (currentInd) currentInd.innerText = pdfCurrentPage;
+        
+        if (prevBtn) {
+            if (pdfCurrentPage === 1) {
+                prevBtn.style.opacity = '0.4';
+                prevBtn.style.pointerEvents = 'none';
+            } else {
+                prevBtn.style.opacity = '1';
+                prevBtn.style.pointerEvents = 'auto';
+            }
+        }
+        
+        if (nextBtn) {
+            if (pdfCurrentPage === pdfTotalPages) {
+                nextBtn.style.opacity = '0.4';
+                nextBtn.style.pointerEvents = 'none';
+            } else {
+                nextBtn.style.opacity = '1';
+                nextBtn.style.pointerEvents = 'auto';
+            }
+        }
+    }
+
+    function applyPdfZoom() {
+        const container = document.getElementById('pdfPagesContainer');
+        const percentText = document.getElementById('zoomPercent');
+        
+        if (container) {
+            container.style.transform = `scale(${pdfZoomLevel})`;
+        }
+        if (percentText) {
+            percentText.innerText = `${Math.round(pdfZoomLevel * 100)}%`;
+        }
+    }
+
+    // Teclas de atalho para melhor UX no Visualizador
+    document.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('pdfViewerModal');
+        if (modal && modal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                window.closePdfViewer();
+            } else if (e.key === 'ArrowLeft') {
+                window.prevPdfPage();
+            } else if (e.key === 'ArrowRight') {
+                window.nextPdfPage();
+            } else if (e.key === '+' || e.key === '=') {
+                window.zoomInPdf();
+            } else if (e.key === '-') {
+                window.zoomOutPdf();
+            }
+        }
+    });
+
 });

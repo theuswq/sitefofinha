@@ -52,8 +52,7 @@
             <nav class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Início</a>
                 <a href="#sobre" class="nav-link"><i class="fa-solid fa-industry"></i> Empresa</a>
-                <a href="#legislacao-sobre" class="nav-link"><i class="fa-solid fa-book-medical"></i> Legislação</a>
-                <a href="#marcos-legais" class="nav-link"><i class="fa-solid fa-timeline"></i> Marcos</a>
+                <a href="#legislacao" class="nav-link"><i class="fa-solid fa-book-medical"></i> Legislação</a>
                 <a href="#manual-bpf" class="nav-link"><i class="fa-solid fa-clipboard-list"></i> BPF</a>
                 <a href="#processo-fluxograma" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Processo</a>
                 <a href="#qualidade-dashboard" class="nav-link"><i class="fa-solid fa-chart-line"></i> Qualidade</a>
@@ -243,212 +242,107 @@
             </div>
         </section>
 
-        <!-- 3. IMPORTÂNCIA DA LEGISLAÇÃO DE ALIMENTOS SECTION -->
-        <section id="legislacao-sobre" class="section-padding">
+        <!-- 3. SEÇÃO LEGISLAÇÃO E CONFORMIDADE REGULATÓRIA -->
+        <section id="legislacao" class="section-padding">
             <div class="container">
                 <div class="section-header" data-aos="fade-up">
                     <span class="section-subtitle">Normatividade e Proteção</span>
-                    <h2 class="section-title">Importância da Legislação de Alimentos</h2>
+                    <h2 class="section-title">Legislação e Conformidade Regulatória</h2>
                     <div class="header-divider"></div>
+                    <p class="text-center text-muted">A YogurVida segue rigorosamente todas as normas sanitárias e regulatórias aplicáveis à indústria de alimentos e laticínios, garantindo produtos seguros e de qualidade superior para toda a sua família.</p>
                 </div>
 
-                <div class="legislation-intro-grid">
-                    <div class="leg-intro-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon-circle"><i class="fa-solid fa-heart-pulse"></i></div>
-                        <h3>Proteção da Saúde Pública</h3>
-                        <p>O objetivo primordial da legislação de alimentos é salvaguardar a integridade física do
-                            consumidor. Leis rigorosas previnem a ocorrência de Doenças Transmitidas por Alimentos
-                            (DTAs), como salmonelose, listeriose e intoxicações estafilocócicas causadas por falhas na
-                            higienização.</p>
-                    </div>
-                    <div class="leg-intro-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="icon-circle"><i class="fa-solid fa-arrows-spin"></i></div>
-                        <h3>Padronização de Processos</h3>
-                        <p>Normativas técnicas asseguram que todas as indústrias sigam as mesmas diretrizes operacionais
-                            de higiene, pasteurização e análises. Isso garante uniformidade de mercado, qualidade
-                            reprodutível do produto e equidade comercial entre concorrentes.</p>
-                    </div>
-                    <div class="leg-intro-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="icon-circle"><i class="fa-solid fa-scale-balanced"></i></div>
-                        <h3>Defesa do Consumidor e Rastreabilidade</h3>
-                        <p>Estabelece regras claras sobre rotulagem (tabela nutricional, alérgenos, prazo de validade),
-                            assegurando o direito de informação correta ao consumidor e permitindo o rastreamento total
-                            dos lotes em casos de recall.</p>
-                    </div>
+                <!-- Botão Principal em Destaque -->
+                <div class="pdf-action-container" data-aos="fade-up" data-aos-delay="100">
+                    <button class="btn btn-pdf-primary" onclick="openPdfViewer()">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>Visualizar Marcos e Leis da Empresa</span>
+                    </button>
                 </div>
 
-                <!-- Info-graphics for legislation impacts -->
-                <div class="infographic-box glass-card" data-aos="zoom-in">
-                    <h3 class="subsection-title text-center"><i class="fa-solid fa-shield-check"></i> Ciclo Virtuoso dos
-                        Impactos da Legislação na Indústria</h3>
-                    <div class="infographic-grid">
-                        <div class="info-step">
-                            <span class="info-num">01</span>
-                            <h5>Rigor Legal</h5>
-                            <p>Normas rígidas do MAPA/ANVISA implementadas e auditadas internamente.</p>
-                        </div>
-                        <div class="info-arrow"><i class="fa-solid fa-angles-right"></i></div>
-                        <div class="info-step">
-                            <span class="info-num">02</span>
-                            <h5>Redução de Falhas</h5>
-                            <p>Minimização de contaminações cruzadas e desperdícios operacionais.</p>
-                        </div>
-                        <div class="info-arrow"><i class="fa-solid fa-angles-right"></i></div>
-                        <div class="info-step">
-                            <span class="info-num">03</span>
-                            <h5>Credibilidade</h5>
-                            <p>O mercado confia na marca, ampliando vendas e acesso a novos mercados.</p>
-                        </div>
-                        <div class="info-arrow"><i class="fa-solid fa-angles-right"></i></div>
-                        <div class="info-step">
-                            <span class="info-num">04</span>
-                            <h5>Segurança Total</h5>
-                            <p>Consumidores saudáveis e fiéis, blindagem jurídica para a indústria.</p>
+                <!-- Cards dos Principais Marcos Legais Aplicados -->
+                <div class="legislacao-cards-grid">
+                    
+                    <!-- Card 1: Decreto-Lei nº 986/1969 -->
+                    <div class="leg-card-item glass-card" data-aos="fade-up" data-aos-delay="150" onclick="openPdfViewer()">
+                        <div class="leg-card-icon-box"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <div class="leg-card-info">
+                            <span class="leg-card-year">1969</span>
+                            <h3>Decreto-Lei nº 986</h3>
+                            <p>Define as Normas Básicas sobre Alimentos no Brasil, incluindo regras para registro de fórmulas e padrões de rotulagem clara.</p>
+                            <span class="leg-card-action-link"><i class="fa-solid fa-file-pdf"></i> Acessar Manual</span>
                         </div>
                     </div>
+
+                    <!-- Card 2: Lei nº 6.437/1977 -->
+                    <div class="leg-card-item glass-card" data-aos="fade-up" data-aos-delay="200" onclick="openPdfViewer()">
+                        <div class="leg-card-icon-box"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="leg-card-info">
+                            <span class="leg-card-year">1977</span>
+                            <h3>Lei nº 6.437</h3>
+                            <p>Tipifica as infrações sanitárias federais e estabelece penalidades severas, como multas e interdições da fábrica.</p>
+                            <span class="leg-card-action-link"><i class="fa-solid fa-file-pdf"></i> Acessar Manual</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Lei nº 8.078/1990 -->
+                    <div class="leg-card-item glass-card" data-aos="fade-up" data-aos-delay="250" onclick="openPdfViewer()">
+                        <div class="leg-card-icon-box"><i class="fa-solid fa-users-gear"></i></div>
+                        <div class="leg-card-info">
+                            <span class="leg-card-year">1990</span>
+                            <h3>Lei nº 8.078 (CDC)</h3>
+                            <p>Código de Defesa do Consumidor. Estabelece responsabilidade civil objetiva por defeitos na qualidade ou pureza do produto.</p>
+                            <span class="leg-card-action-link"><i class="fa-solid fa-file-pdf"></i> Acessar Manual</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Portaria SVS/MS nº 326/1997 -->
+                    <div class="leg-card-item glass-card" data-aos="fade-up" data-aos-delay="300" onclick="openPdfViewer()">
+                        <div class="leg-card-icon-box"><i class="fa-solid fa-clipboard-check"></i></div>
+                        <div class="leg-card-info">
+                            <span class="leg-card-year">1997</span>
+                            <h3>Portaria SVS/MS nº 326</h3>
+                            <p>Regulamento técnico de condições higiênico-sanitárias e Boas Práticas de Fabricação (BPF) de toda a planta.</p>
+                            <span class="leg-card-action-link"><i class="fa-solid fa-file-pdf"></i> Acessar Manual</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: RDC nº 275/2002 -->
+                    <div class="leg-card-item glass-card" data-aos="fade-up" data-aos-delay="350" onclick="openPdfViewer()">
+                        <div class="leg-card-icon-box"><i class="fa-solid fa-file-signature"></i></div>
+                        <div class="leg-card-info">
+                            <span class="leg-card-year">2002</span>
+                            <h3>RDC nº 275 (ANVISA)</h3>
+                            <p>Introduz a obrigatoriedade dos Procedimentos Operacionais Padronizados (POPs) e listas de verificação de BPF.</p>
+                            <span class="leg-card-action-link"><i class="fa-solid fa-file-pdf"></i> Acessar Manual</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: RDC nº 216/2004 -->
+                    <div class="leg-card-item glass-card" data-aos="fade-up" data-aos-delay="400" onclick="openPdfViewer()">
+                        <div class="leg-card-icon-box"><i class="fa-solid fa-hands-bubbles"></i></div>
+                        <div class="leg-card-info">
+                            <span class="leg-card-year">2004</span>
+                            <h3>RDC nº 216 (ANVISA)</h3>
+                            <p>Regulamento de Boas Práticas para manipulação higiênica e conservação de ingredientes no estoque.</p>
+                            <span class="leg-card-action-link"><i class="fa-solid fa-file-pdf"></i> Acessar Manual</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Normativas do MAPA -->
+                    <div class="leg-card-item glass-card" data-aos="fade-up" data-aos-delay="450" onclick="openPdfViewer()">
+                        <div class="leg-card-icon-box"><i class="fa-solid fa-cow"></i></div>
+                        <div class="leg-card-info">
+                            <span class="leg-card-year">Atual</span>
+                            <h3>Normativas do MAPA</h3>
+                            <p>Instruções Normativas 76/77 regulando a qualidade microbiológica do leite cru e fiscalização pelo SIF.</p>
+                            <span class="leg-card-action-link"><i class="fa-solid fa-file-pdf"></i> Acessar Manual</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
-
-        <!-- 4. PRINCIPAIS MARCOS LEGAIS SECTION -->
-        <section id="marcos-legais" class="section-padding section-light">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <span class="section-subtitle">Evolução Regulatória no Brasil</span>
-                    <h2 class="section-title">Principais Marcos Legais Aplicados</h2>
-                    <div class="header-divider"></div>
-                    <p class="text-center text-muted">Selecione ou explore a linha do tempo interativa das
-                        regulamentações aplicadas diretamente ao setor de laticínios da YogurVida.</p>
-                </div>
-
-                <div class="timeline-container">
-                    <div class="timeline-line"></div>
-
-                    <!-- Item 1: Decreto-Lei 986/1969 -->
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-badge"><i class="fa-solid fa-gavel"></i></div>
-                        <div class="timeline-panel glass-card">
-                            <div class="timeline-year">1969</div>
-                            <h4>Decreto-Lei nº 986</h4>
-                            <p class="timeline-summary">Institui as Normas Básicas sobre Alimentos no Brasil.</p>
-                            <div class="timeline-detail">
-                                <p><strong>Objetivo:</strong> Definir padrões nacionais de identidade, rotulagem e
-                                    registro de alimentos.</p>
-                                <p><strong>Aplicação Láctea:</strong> Estabelece que todo derivado lácteo deve ser
-                                    registrado e rotulado de acordo com padrões de integridade e higiene sanitária,
-                                    proibindo enganos visuais.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 2: Lei 6.437/1977 -->
-                    <div class="timeline-item timeline-inverted" data-aos="fade-left">
-                        <div class="timeline-badge"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                        <div class="timeline-panel glass-card">
-                            <div class="timeline-year">1977</div>
-                            <h4>Lei nº 6.437</h4>
-                            <p class="timeline-summary">Configura as infrações à legislação sanitária federal e suas
-                                respectivas penalidades.</p>
-                            <div class="timeline-detail">
-                                <p><strong>Objetivo:</strong> Tipificar infrações (leves, graves e gravíssimas) e
-                                    definir penalidades como advertência, multa, interdição do estabelecimento e
-                                    apreensão de lotes.</p>
-                                <p><strong>Aplicação Láctea:</strong> Garante que desvios de temperatura no leite ou
-                                    contaminação em lote de iogurte resultem em severas penalidades civis e
-                                    administrativas.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 3: Lei 8.078/1990 -->
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-badge"><i class="fa-solid fa-users-gear"></i></div>
-                        <div class="timeline-panel glass-card">
-                            <div class="timeline-year">1990</div>
-                            <h4>Lei nº 8.078 (Código de Defesa do Consumidor)</h4>
-                            <p class="timeline-summary">Estabelece a proteção integral aos direitos básicos do
-                                consumidor brasileiro.</p>
-                            <div class="timeline-detail">
-                                <p><strong>Objetivo:</strong> Regulamentar a responsabilidade objetiva do fabricante por
-                                    vício ou defeito do produto, garantindo indenização e recall de lotes inseguros.</p>
-                                <p><strong>Aplicação Láctea:</strong> Se um iogurte apresentar fragmento físico ou
-                                    contaminação microbiológica, a YogurVida é diretamente responsável, devendo
-                                    indenizar e recolher o lote.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 4: Portaria SVS/MS nº 326/1997 -->
-                    <div class="timeline-item timeline-inverted" data-aos="fade-left">
-                        <div class="timeline-badge"><i class="fa-solid fa-clipboard-check"></i></div>
-                        <div class="timeline-panel glass-card">
-                            <div class="timeline-year">1997</div>
-                            <h4>Portaria SVS/MS nº 326</h4>
-                            <p class="timeline-summary">Aprova o Regulamento Técnico sobre Condições
-                                Higiênico-Sanitárias e de BPF.</p>
-                            <div class="timeline-detail">
-                                <p><strong>Objetivo:</strong> Padronizar os requisitos de higiene do pessoal, das
-                                    instalações físicas, dos equipamentos e do processamento de matérias-primas.</p>
-                                <p><strong>Aplicação Láctea:</strong> A espinha dorsal do nosso manual de BPF,
-                                    determinando as rotinas diárias de paramentação dos operadores e sanitização de
-                                    tubulações de leite.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 5: RDC nº 275/2002 (ANVISA) -->
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-badge"><i class="fa-solid fa-file-signature"></i></div>
-                        <div class="timeline-panel glass-card">
-                            <div class="timeline-year">2002</div>
-                            <h4>RDC nº 275 (ANVISA)</h4>
-                            <p class="timeline-summary">Introduz a obrigatoriedade dos Procedimentos Operacionais
-                                Padronizados (POPs).</p>
-                            <div class="timeline-detail">
-                                <p><strong>Objetivo:</strong> Estabelecer roteiros de auditoria visual de BPF e exigir 8
-                                    POPs documentados (higienização de instalações, potabilidade de água, higiene de
-                                    manipuladores, controle de pragas, etc.).</p>
-                                <p><strong>Aplicação Láctea:</strong> Exige cronogramas assinados e auditorias
-                                    constantes que comprovem a esterilização microbiológica das envasadoras automáticas
-                                    de iogurte.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 6: RDC nº 216/2004 (ANVISA) -->
-                    <div class="timeline-item timeline-inverted" data-aos="fade-left">
-                        <div class="timeline-badge"><i class="fa-solid fa-kitchen-set"></i></div>
-                        <div class="timeline-panel glass-card">
-                            <div class="timeline-year">2004</div>
-                            <h4>RDC nº 216 (ANVISA)</h4>
-                            <p class="timeline-summary">Regulamento Técnico de Boas Práticas para Serviços de
-                                Alimentação.</p>
-                            <div class="timeline-detail">
-                                <p><strong>Objetivo:</strong> Garantir o controle sanitário no preparo, manipulação,
-                                    armazenamento e exposição de alimentos prontos.</p>
-                                <p><strong>Aplicação Láctea:</strong> Serve de apoio para o armazenamento final do
-                                    iogurte pronto na cadeia fria do varejo e na manipulação de ingredientes lácteos na
-                                    formulação industrial.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 7: Normativas do MAPA -->
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-badge"><i class="fa-solid fa-cow"></i></div>
-                        <div class="timeline-panel glass-card">
-                            <div class="timeline-year">Atual</div>
-                            <h4>Instruções Normativas do MAPA (IN 76 e IN 77)</h4>
-                            <p class="timeline-summary">Regulamentam a qualidade microbiológica do leite cru e os
-                                Regulamentos de Identidade e Qualidade (RTIQ).</p>
-                            <div class="timeline-detail">
-                                <p><strong>Objetivo:</strong> Definir contagem bacteriana total (CBT), contagem de
-                                    células somáticas (CCS) e ausência de antibióticos no leite que chega à indústria.
-                                </p>
-                                <p><strong>Aplicação Láctea:</strong> Todo caminhão de leite que chega à YogurVida passa
-                                    por análises laboratoriais em tempo real para verificar conformidade com a IN 76/77
-                                    antes de descarregar nos silos.</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1299,6 +1193,310 @@
                 excelência universitária.</p>
         </div>
     </footer>
+
+    <!-- PDF VIEWER MODAL -->
+    <div id="pdfViewerModal" class="pdf-modal">
+        <div class="pdf-modal-overlay" onclick="closePdfViewer()"></div>
+        <div class="pdf-modal-container glass-card animate-scale-up">
+            
+            <!-- Modal Header -->
+            <div class="pdf-modal-header">
+                <div class="pdf-modal-title-info">
+                    <i class="fa-solid fa-file-pdf pdf-header-icon"></i>
+                    <div>
+                        <h3>Manual_Legislacao_YogurVida.pdf</h3>
+                        <span class="pdf-subtitle">Você está visualizando o Manual Oficial de Legislação e Conformidade da YogurVida.</span>
+                    </div>
+                </div>
+                <button class="pdf-close-btn" onclick="closePdfViewer()" aria-label="Fechar visualizador">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Toolbar -->
+            <div class="pdf-modal-toolbar">
+                <div class="toolbar-section">
+                    <button class="toolbar-btn" onclick="prevPdfPage()" id="prevPageBtn" title="Página Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <span class="page-indicator">Página <span id="currentPageNum">1</span> de <span id="totalPagesNum">9</span></span>
+                    <button class="toolbar-btn" onclick="nextPdfPage()" id="nextPageBtn" title="Próxima Página">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="toolbar-divider"></div>
+                
+                <div class="toolbar-section">
+                    <button class="toolbar-btn" onclick="zoomOutPdf()" title="Diminuir Zoom">
+                        <i class="fa-solid fa-magnifying-glass-minus"></i>
+                    </button>
+                    <span class="zoom-indicator" id="zoomPercent">100%</span>
+                    <button class="toolbar-btn" onclick="zoomInPdf()" title="Aumentar Zoom">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </button>
+                </div>
+                
+                <div class="toolbar-divider"></div>
+                
+                <div class="toolbar-section">
+                    <button class="toolbar-btn" onclick="togglePdfFullscreen()" title="Tela Cheia">
+                        <i class="fa-solid fa-expand"></i>
+                    </button>
+                    <button class="toolbar-btn" onclick="printPdfDocument()" title="Imprimir Manual">
+                        <i class="fa-solid fa-print"></i>
+                    </button>
+                    <a href="Manual_Legislacao_YogurVida.pdf" download="Manual_Legislacao_YogurVida.pdf" class="toolbar-btn btn-download-link" title="Download do PDF">
+                        <i class="fa-solid fa-download"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Modal Document Container (Simulated Pages) -->
+            <div class="pdf-modal-body" id="pdfModalBody">
+                <div class="pdf-pages-container" id="pdfPagesContainer">
+                    
+                    <!-- PAGE 1: COVER -->
+                    <div class="pdf-page active" id="pdf-page-1">
+                        <div class="pdf-page-header-decor"></div>
+                        <div class="pdf-page-content cover-page">
+                            <div class="pdf-logo-box">
+                                <i class="fa-solid fa-cow"></i>
+                                <span>YogurVida Laticínios</span>
+                            </div>
+                            <div class="pdf-badge-title">DOCUMENTO INSTITUCIONAL DE CONFORMIDADE</div>
+                            <h1 class="pdf-cover-title">MANUAL OFICIAL DE LEGISLAÇÃO E CONFORMIDADE REGULATÓRIA</h1>
+                            <p class="pdf-cover-company">YogurVida Indústria de Laticínios LTDA.</p>
+                            
+                            <div class="pdf-cover-divider"></div>
+                            
+                            <div class="pdf-editable-form">
+                                <div class="pdf-form-label">CURSO:</div>
+                                <input type="text" value="Curso Técnico em Alimentos" class="pdf-editable-input" id="pdfCursoInput" oninput="syncPdfInputs(this, 'curso')">
+                                
+                                <div class="pdf-form-label">INTEGRANTES DO TRABALHO:</div>
+                                <input type="text" value="João Matheus, Matheus Tavarez, João Felipe, Luis Felipe" class="pdf-editable-input" id="pdfIntegrantesInput" oninput="syncPdfInputs(this, 'integrantes')">
+                                
+                                <div class="pdf-form-label">DATA DE EMISSÃO:</div>
+                                <p class="pdf-form-static-date">19 de Junho de 2026</p>
+                            </div>
+                            
+                            <div class="pdf-cover-footer">
+                                <p>Trabalho Didático Científico - Higiene e Segurança dos Alimentos</p>
+                                <p class="sub">Curso de Alimentos 1B</p>
+                            </div>
+                        </div>
+                        <div class="pdf-page-footer-decor"></div>
+                    </div>
+                    
+                    <!-- PAGE 2: INTRODUÇÃO -->
+                    <div class="pdf-page" id="pdf-page-2">
+                        <div class="pdf-page-header">
+                            <span>YogurVida Indústria de Laticínios LTDA.</span>
+                            <span class="right">Manual de Legislação</span>
+                        </div>
+                        <div class="pdf-page-content">
+                            <h2 class="pdf-page-title">INTRODUÇÃO</h2>
+                            <p>A legislação na indústria de alimentos desempenha um papel fundamental e estratégico na proteção da saúde pública e na garantia de que as matérias-primas e os processos produtivos atinjam padrões de qualidade aceitáveis. Em um setor sensível como o processamento de derivados lácteos (leite e iogurtes), a conformidade legal atua como barreira contra Doenças Transmitidas por Alimentos (DTAs) e fraudes de adulteração física, química ou biológica.</p>
+                            <p>A segurança de alimentos refere-se à garantia de que os produtos alimentícios não causarão danos ou infecções ao consumidor quando preparados e consumidos de acordo com seu uso previsto. A qualidade, por outro lado, abrange a viscosidade, textura, sabor e estabilidade físico-química dos produtos lácteos. Ao seguir regulamentações de órgãos fiscalizadores como o Ministério da Agricultura e Pecuária (MAPA) e a Agência Nacional de Vigilância Sanitária (ANVISA), a YogurVida Laticínios implementa uma operação robusta e confiável, blindando sua marca juridicamente e protegendo seus clientes.</p>
+                        </div>
+                        <div class="pdf-page-footer">
+                            <span>Higiene e Segurança dos Alimentos</span>
+                            <span class="page-num">Página 2</span>
+                        </div>
+                    </div>
+                    
+                    <!-- PAGE 3: CAP 1 & CAP 2 -->
+                    <div class="pdf-page" id="pdf-page-3">
+                        <div class="pdf-page-header">
+                            <span>YogurVida Indústria de Laticínios LTDA.</span>
+                            <span class="right">Manual de Legislação</span>
+                        </div>
+                        <div class="pdf-page-content">
+                            <h2 class="pdf-page-title">CAPÍTULO 1 — DECRETO-LEI Nº 986/1969</h2>
+                            <h3>Objetivo e Aplicação</h3>
+                            <p>Institui as Normas Básicas sobre Alimentos no Brasil. Define padrões nacionais de identidade, registro de estabelecimentos, rotulagem de produtos alimentícios e controle sanitário federal. Exige o registro obrigatório de todo alimento industrializado comercializado, estabelecendo limites de aditivos e coibindo termos ou imagens enganosas.</p>
+                            <h3>Importância para a Fabricação de Iogurtes</h3>
+                            <p>O Decreto-Lei exige que toda variação de iogurte da YogurVida (Natural, Morango, Grego, Probiótico) possua registro formalizado de integridade nutricional e rotulagem fiel à verdade. Não é permitido ilustrar frutas frescas no rótulo se o produto utilizar apenas aromas artificiais, protegendo o consumidor final de enganos visuais ou informacionais.</p>
+                            
+                            <h2 class="pdf-page-title mt-4">CAPÍTULO 2 — LEI Nº 6.437/1977</h2>
+                            <h3>Infrações e Penalidades Sanitárias</h3>
+                            <p>Configura e define as infrações à legislação sanitária federal e estabelece as penalidades administrativas aplicáveis. As infrações são classificadas em leves, graves e gravíssimas. As penalidades variam desde advertências escritas e multas pecuniárias diárias até a apreensão do lote, inutilização de mercadorias e interdição da fábrica.</p>
+                            <h3>Aplicação na Indústria Alimentícia</h3>
+                            <p>Para a indústria de laticínios, desvios higiênicos críticos detectados (como falha na pasteurização, presença de pragas ou temperatura de estocagem inadequada) resultam em autuações civis graves e interdição automática do estabelecimento industrial.</p>
+                        </div>
+                        <div class="pdf-page-footer">
+                            <span>Higiene e Segurança dos Alimentos</span>
+                            <span class="page-num">Página 3</span>
+                        </div>
+                    </div>
+                    
+                    <!-- PAGE 4: CAP 3 & CAP 5 -->
+                    <div class="pdf-page" id="pdf-page-4">
+                        <div class="pdf-page-header">
+                            <span>YogurVida Indústria de Laticínios LTDA.</span>
+                            <span class="right">Manual de Legislação</span>
+                        </div>
+                        <div class="pdf-page-content">
+                            <h2 class="pdf-page-title">CAPÍTULO 3 — LEI Nº 8.078/1990 (CDC)</h2>
+                            <h3>Direitos do Consumidor e Responsabilidade</h3>
+                            <p>O Código de Defesa do Consumidor estabelece a proteção da vida, saúde e segurança do consumidor contra riscos de produtos perigosos ou nocivos. O fabricante responde de forma objetiva (independente da existência de culpa) pelos danos causados por defeitos de fabricação ou contaminação de suas mercadorias. Se a YogurVida comercializar iogurte contaminado, ela assume a responsabilidade civil de indenização e o recolhimento imediato (recall).</p>
+                            <h3>Rotulagem e Informações Obrigatórias</h3>
+                            <p>Exige que rótulos tragam informações corretas, claras, precisas e legíveis sobre composição, ingredientes, alérgenos (contém leite), lactose e tabela nutricional, garantindo o direito à informação segura.</p>
+                            
+                            <h2 class="pdf-page-title mt-4">CAPÍTULO 5 — RDC Nº 275/2002 (ANVISA)</h2>
+                            <h3>POPs e Checklists de Auditoria</h3>
+                            <p>Dispõe sobre o Regulamento Técnico de Procedimentos Operacionais Padronizados (POPs) aplicados aos estabelecimentos produtores de alimentos e a Lista de Verificação das BPF. Exige a documentação de pelo menos 8 POPs essenciais, incluindo: potabilidade de água, higiene dos manipuladores, controle integrado de pragas, sanitização de tanques e calibração de instrumentos.</p>
+                            <h3>Aplicação Prática</h3>
+                            <p>Exige que a YogurVida mantenha planilhas diárias arquivadas comprovando a eficácia microbiológica do Clean-in-Place (CIP) em todas as bombas sanitárias e pasteurizadores.</p>
+                        </div>
+                        <div class="pdf-page-footer">
+                            <span>Higiene e Segurança dos Alimentos</span>
+                            <span class="page-num">Página 4</span>
+                        </div>
+                    </div>
+                    
+                    <!-- PAGE 5: CAP 4 & CAP 6 -->
+                    <div class="pdf-page" id="pdf-page-5">
+                        <div class="pdf-page-header">
+                            <span>YogurVida Indústria de Laticínios LTDA.</span>
+                            <span class="right">Manual de Legislação</span>
+                        </div>
+                        <div class="pdf-page-content">
+                            <h2 class="pdf-page-title">CAPÍTULO 4 — PORTARIA SVS/MS Nº 326/1997</h2>
+                            <h3>Condições Higiênico-Sanitárias e BPF</h3>
+                            <p>Aprova o Regulamento Técnico sobre Condições Higiênico-Sanitárias e de BPF para Estabelecimentos Produtores/Industrializadores de Alimentos. Os procedimentos abrangem a estrutura física, pisos sanitários antiderrapantes, paredes claras e laváveis, e conduta estrita de higiene do manipulador (paramentação, uniformes claros lavados industrialmente, toucas, botas de PVC e veto absoluto a adornos na área produtiva).</p>
+                            <h3>Aplicação na YogurVida</h3>
+                            <p>Funciona como a espinha dorsal de nossas Boas Práticas, ditando os cronogramas de assepsia, desinfecção química com ácido peracético e rotina diária dos operadores.</p>
+                            
+                            <h2 class="pdf-page-title mt-4">CAPÍTULO 6 — RDC Nº 216/2004 (ANVISA)</h2>
+                            <h3>Manipulação Higiênica e Segurança Alimentar</h3>
+                            <p>Regulamento Técnico de Boas Práticas para Serviços de Alimentação. Foca no controle preventivo de perigos biológicos, físicos e químicos em todas as etapas da cadeia de suprimentos.</p>
+                            <h3>Aplicação na Indústria láctea</h3>
+                            <p>Serve de apoio no controle microbiológico de manipuladores e conservação de ingredientes secos e climatizados (polpas, fermentos). Complementa as regras de higiene respiratória, assepsia de bicos dosadores de ingredientes e restrições de saúde médica dos manipuladores (exames semestrais de PCMSO).</p>
+                        </div>
+                        <div class="pdf-page-footer">
+                            <span>Higiene e Segurança dos Alimentos</span>
+                            <span class="page-num">Página 5</span>
+                        </div>
+                    </div>
+                    
+                    <!-- PAGE 6: CAP 7 -->
+                    <div class="pdf-page" id="pdf-page-6">
+                        <div class="pdf-page-header">
+                            <span>YogurVida Indústria de Laticínios LTDA.</span>
+                            <span class="right">Manual de Legislação</span>
+                        </div>
+                        <div class="pdf-page-content">
+                            <h2 class="pdf-page-title">CAPÍTULO 7 — NORMATIVAS DO MAPA (IN 76 E 77)</h2>
+                            <h3>Produção e Controle de Qualidade do Leite Cru</h3>
+                            <p>As Instruções Normativas nº 76 e nº 77 de 2018 do Ministério da Agricultura e Pecuária (MAPA) fixam os regulamentos técnicos de produção, identidade, qualidade e transporte do leite cru refrigerado na fazenda até a chegada na indústria.</p>
+                            <h3>Limites Físico-Químicos e Microbiológicos</h3>
+                            <p>Estabelecem limites rigorosos para a Contagem Bacteriana Total (CBT - limite legal nacional de 300.000 UFC/ml) e Contagem de Células Somáticas (CCS - limite legal de 500.000 CS/ml) no leite cru. Também exigem ausência total de resíduos de antibióticos veterinários e temperatura máxima de transporte do leite cru em caminhões-tanques de até 7.0°C.</p>
+                            <div class="pdf-highlight-box">
+                                <strong><i class="fa-solid fa-cow"></i> Controle na Recepção da YogurVida:</strong>
+                                <p>Cada lote de leite cru transportado passa por triagem analítica em tempo real de acidez dornic, densidade, crioscopia e presença de antibióticos. Leite fora dos limites legais ou com vestígios químicos é sumariamente devolvido.</p>
+                            </div>
+                            <h3>Fiscalização Federal</h3>
+                            <p>O SIF (Serviço de Inspeção Federal) realiza fiscalizações periódicas na planta industrial para certificar o cumprimento das IN 76/77 e auditar os laudos laboratoriais semanais enviados à Rede Brasileira de Laboratórios de Controle de Qualidade do Leite (RBQL).</p>
+                        </div>
+                        <div class="pdf-page-footer">
+                            <span>Higiene e Segurança dos Alimentos</span>
+                            <span class="page-num">Página 6</span>
+                        </div>
+                    </div>
+                    
+                    <!-- PAGE 7: CAP 8 -->
+                    <div class="pdf-page" id="pdf-page-7">
+                        <div class="pdf-page-header">
+                            <span>YogurVida Indústria de Laticínios LTDA.</span>
+                            <span class="right">Manual de Legislação</span>
+                        </div>
+                        <div class="pdf-page-content">
+                            <h2 class="pdf-page-title">CAPÍTULO 8 — APLICAÇÃO DAS LEIS NA YOGURVIDA</h2>
+                            <p>Na YogurVida Laticínios, a Garantia da Qualidade (QA) e o Controle de Qualidade (QC) possuem autonomia total e comunicação direta com a Diretoria Executiva, permitindo interromper a produção em caso de desvios. O cumprimento das legislações é integrado de forma prática e digital nas rotinas diárias da fábrica:</p>
+                            
+                            <div class="pdf-flow-table">
+                                <div class="pdf-flow-row">
+                                    <div class="pdf-flow-col-left"><strong>Recepção do Leite (MAPA IN 76/77)</strong></div>
+                                    <div class="pdf-flow-col-right">Desinfecção de mangueiras do caminhão-tanque. Teste de alizarol 72%, análise de acidez Dornic (15°D a 18°D) e teste Snap para antibiótico antes do descarregamento nos silos abaixo de 4.0°C.</div>
+                                </div>
+                                <div class="pdf-flow-row">
+                                    <div class="pdf-flow-col-left"><strong>Pasteurização (MAPA RTIQ & Portaria 326)</strong></div>
+                                    <div class="pdf-flow-col-right">Tratamento HTST (90°C por 5 min ou 85°C por 30 min) para eliminação de patógenos (Salmonella, Listeria). Válvula automática de desvio de fluxo em caso de queda de temperatura. Monitoramento gráfico contínuo.</div>
+                                </div>
+                                <div class="pdf-flow-row">
+                                    <div class="pdf-flow-col-left"><strong>Fermentação Láctica (RDC 275/216)</strong></div>
+                                    <div class="pdf-flow-col-right">Inoculação asséptica em fluxo laminar com álcool 70% das culturas starter (Lactobacillus bulgaricus e Streptococcus thermophilus) em tanques de aço inox 316L. pH monitorado até estabilizar em 4.5.</div>
+                                </div>
+                                <div class="pdf-flow-row">
+                                    <div class="pdf-flow-col-left"><strong>Envase e Fechamento (Decreto-Lei 986 & CDC)</strong></div>
+                                    <div class="pdf-flow-col-right">Envase automático em cabine de sobrepressão com filtros absolutos HEPA. Esterilização prévia por peróxido de hidrogênio (H2O2) gasoso e luz ultravioleta (UV) nos selos de alumínio. Rótulo com datador automático e alertas de alérgenos.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pdf-page-footer">
+                            <span>Higiene e Segurança dos Alimentos</span>
+                            <span class="page-num">Página 7</span>
+                        </div>
+                    </div>
+                    
+                    <!-- PAGE 8: CONCLUSÃO -->
+                    <div class="pdf-page" id="pdf-page-8">
+                        <div class="pdf-page-header">
+                            <span>YogurVida Indústria de Laticínios LTDA.</span>
+                            <span class="right">Manual de Legislação</span>
+                        </div>
+                        <div class="pdf-page-content">
+                            <h2 class="pdf-page-title">CONCLUSÃO</h2>
+                            <p>A produção industrial de iogurtes pela YogurVida Indústria de Laticínios LTDA. demonstra de forma prática que o sucesso e a longevidade de uma marca alimentícia no mercado nacional dependem da fusão harmoniosa de processos industriais otimizados com o cumprimento ético e rigoroso da Legislação Sanitária Brasileira.</p>
+                            <p>O Manual de Boas Práticas de Fabricação (BPF) e os Procedimentos Operacionais Padronizados (POPs) não são apenas exigências cartoriais da ANVISA e do MAPA, mas a espinha dorsal de um ecossistema produtivo comprometido em assegurar a saúde pública do consumidor e preservar a excelência e o sabor do derivado lácteo. A segurança do consumidor é o valor inegociável da indústria láctea.</p>
+                            
+                            <div class="pdf-highlight-box mt-4">
+                                <strong>Benefícios da Conformidade Legal:</strong>
+                                <ul style="margin-left: 20px; margin-top: 8px;">
+                                    <li>Garantia de segurança alimentar e prevenção de Doenças Transmitidas por Alimentos (DTAs).</li>
+                                    <li>Uniformidade de mercado e qualidade reprodutível do iogurte (viscosidade e sabor estáveis).</li>
+                                    <li>Redução drástica de falhas operacionais, descartes de lotes por prevenção e recalls.</li>
+                                    <li>Blindagem jurídica para a indústria alimentícia e credibilidade inabalável da marca perante o varejo.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pdf-page-footer">
+                            <span>Higiene e Segurança dos Alimentos</span>
+                            <span class="page-num">Página 8</span>
+                        </div>
+                    </div>
+                    
+                    <!-- PAGE 9: REFERÊNCIAS BIBLIOGRÁFICAS -->
+                    <div class="pdf-page" id="pdf-page-9">
+                        <div class="pdf-page-header">
+                            <span>YogurVida Indústria de Laticínios LTDA.</span>
+                            <span class="right">Manual de Legislação</span>
+                        </div>
+                        <div class="pdf-page-content">
+                            <h2 class="pdf-page-title">REFERÊNCIAS BIBLIOGRÁFICAS</h2>
+                            <ol class="pdf-ref-list" style="margin-left: 20px; line-height: 1.6;">
+                                <li><strong>BRASIL. MINISTÉRIO DA SAÚDE. ANVISA.</strong> Resolução RDC nº 275, de 21 de outubro de 2002. Dispõe sobre o Regulamento Técnico de Procedimentos Operacionais Padronizados (POPs) aplicados aos estabelecimentos produtores/industrializadores de alimentos. Diário Oficial da União, Brasília, DF, 2002.</li>
+                                <li><strong>BRASIL. MINISTÉRIO DA SAÚDE. SECRETARIA DE VIGILÂNCIA SANITÁRIA.</strong> Portaria nº 326, de 30 de julho de 1997. Regulamento Técnico; Condições Higiênico-Sanitárias e de BPF para Estabelecimentos Produtores de Alimentos. Diário Oficial da União, Brasília, DF, 1997.</li>
+                                <li><strong>BRASIL. MINISTÉRIO DA AGRICULTURA, PECUÁRIA E ABASTECIMENTO (MAPA).</strong> Instrução Normativa nº 76 e nº 77, de 26 de novembro de 2018. Fixa os Regulamentos Técnicos de Produção, Identidade e Qualidade do Leite Cru. Diário Oficial da União, Brasília, DF, 2018.</li>
+                                <li><strong>BRASIL. PRESIDÊNCIA DA REPÚBLICA.</strong> Decreto-Lei nº 986, de 21 de outubro de 1969. Institui normas básicas sobre alimentos. Diário Oficial da União, Brasília, DF, 1969.</li>
+                                <li><strong>BRASIL. PRESIDÊNCIA DA REPÚBLICA.</strong> Lei nº 6.437, de 20 de agosto de 1977. Configura infrações à legislação sanitária federal e estabelece as sanções respectivas. Diário Oficial da União, Brasília, DF, 1977.</li>
+                                <li><strong>BRASIL. PRESIDÊNCIA DA REPÚBLICA.</strong> Lei nº 8.078, de 11 de setembro de 1990. Dispõe sobre a proteção do consumidor e dá outras providências (Código de Defesa do Consumidor). Diário Oficial da União, Brasília, DF, 1990.</li>
+                                <li><strong>BRASIL. MINISTÉRIO DA SAÚDE. ANVISA.</strong> Resolução RDC nº 216, de 15 de setembro de 2004. Regulamento Técnico de Boas Práticas para Serviços de Alimentação. Diário Oficial da União, Brasília, DF, 2004.</li>
+                            </ol>
+                        </div>
+                        <div class="pdf-page-footer">
+                            <span>Higiene e Segurança dos Alimentos</span>
+                            <span class="page-num">Página 9</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
 
     <!-- Chart.js Libraries (via CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

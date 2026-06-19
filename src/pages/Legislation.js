@@ -1,97 +1,119 @@
 import React from 'react';
 
 /**
- * Componente da Página "Importância da Legislação" (Legislation) - YogurVida
- * Detalha a importância da regulamentação alimentar para a saúde pública,
- * padronização de processos, proteção jurídica da indústria e defesa
- * do consumidor final.
+ * Componente da Página "Legislação" (Legislation) - YogurVida
+ * Exibe a seção de Legislação e Conformidade Regulatória com cabeçalho,
+ * botão principal de destaque para visualizar o manual PDF e os 7 cards interativos.
  */
-export default function Legislation() {
+export default function Legislation({ onOpenPdf }) {
+  const legislations = [
+    {
+      id: 'dl-986',
+      year: '1969',
+      title: 'Decreto-Lei nº 986',
+      description: 'Define as Normas Básicas sobre Alimentos no Brasil, incluindo regras para registro de fórmulas e padrões de rotulagem clara.',
+      icon: 'fa-scale-balanced',
+    },
+    {
+      id: 'lei-6437',
+      year: '1977',
+      title: 'Lei nº 6.437',
+      description: 'Tipifica as infrações sanitárias federais e estabelece penalidades severas, como multas e interdições da fábrica.',
+      icon: 'fa-triangle-exclamation',
+    },
+    {
+      id: 'lei-8078',
+      year: '1990',
+      title: 'Lei nº 8.078 (CDC)',
+      description: 'Código de Defesa do Consumidor. Estabelece responsabilidade civil objetiva por defeitos na qualidade ou pureza do produto.',
+      icon: 'fa-users-gear',
+    },
+    {
+      id: 'portaria-326',
+      year: '1997',
+      title: 'Portaria SVS/MS nº 326',
+      description: 'Regulamento técnico de condições higiênico-sanitárias e Boas Práticas de Fabricação (BPF) de toda a planta.',
+      icon: 'fa-clipboard-check',
+    },
+    {
+      id: 'rdc-275',
+      year: '2002',
+      title: 'RDC nº 275 (ANVISA)',
+      description: 'Introduz a obrigatoriedade dos Procedimentos Operacionais Padronizados (POPs) e listas de verificação de BPF.',
+      icon: 'fa-file-signature',
+    },
+    {
+      id: 'rdc-216',
+      year: '2004',
+      title: 'RDC nº 216 (ANVISA)',
+      description: 'Regulamento de Boas Práticas para manipulação higiênica e conservação de ingredientes no estoque.',
+      icon: 'fa-hands-bubbles',
+    },
+    {
+      id: 'mapa',
+      year: 'Atual',
+      title: 'Normativas do MAPA',
+      description: 'Instruções Normativas 76/77 regulando a qualidade microbiológica do leite cru e fiscalização pelo SIF.',
+      icon: 'fa-cow',
+    },
+  ];
+
+  const handleAction = (e) => {
+    if (e) e.preventDefault();
+    if (onOpenPdf) {
+      onOpenPdf();
+    } else {
+      window.open('/Manual_Legislacao_YogurVida.pdf', '_blank');
+    }
+  };
+
   return (
-    <section id="legislacao-sobre" className="section-padding">
+    <section id="legislacao" className="section-padding">
       <div className="container">
         
         {/* Cabeçalho de Seção */}
         <div className="section-header" data-aos="fade-up">
           <span className="section-subtitle">Normatividade e Proteção</span>
-          <h2 className="section-title">Importância da Legislação de Alimentos</h2>
+          <h2 className="section-title">Legislação e Conformidade Regulatória</h2>
           <div className="header-divider"></div>
+          <p className="text-center text-muted">
+            A YogurVida segue rigorosamente todas as normas sanitárias e regulatórias aplicáveis 
+            à indústria de alimentos e laticínios, garantindo produtos seguros e de qualidade 
+            superior para toda a sua família.
+          </p>
+        </div>
+
+        {/* Botão Principal em Destaque */}
+        <div className="pdf-action-container" data-aos="fade-up" data-aos-delay="100">
+          <button className="btn btn-pdf-primary" onClick={handleAction}>
+            <i className="fa-solid fa-file-pdf"></i>
+            <span>Visualizar Marcos e Leis da Empresa</span>
+          </button>
         </div>
         
-        {/* Grid com Argumentos Acadêmicos Principais */}
-        <div className="legislation-intro-grid">
-          
-          <div className="leg-intro-card" data-aos="fade-up" data-aos-delay="100">
-            <div className="icon-circle"><i className="fa-solid fa-heart-pulse"></i></div>
-            <h3>Proteção da Saúde Pública</h3>
-            <p>
-              O objetivo primordial da legislação de alimentos é salvaguardar a integridade biológica do consumidor. 
-              Leis e fiscalizações rigorosas previnem ativamente a ocorrência de Doenças Transmitidas por Alimentos (DTAs), 
-              como a salmonelose, listeriose e intoxicações estafilocócicas graves causadas por falhas na higienização.
-            </p>
-          </div>
-
-          <div className="leg-intro-card" data-aos="fade-up" data-aos-delay="200">
-            <div className="icon-circle"><i className="fa-solid fa-arrows-spin"></i></div>
-            <h3>Padronização de Processos</h3>
-            <p>
-              Normativas técnicas asseguram que todas as indústrias de laticínios do país sigam as mesmas diretrizes 
-              operacionais de assepsia, tratamentos térmicos e de análises de liberação. Isso garante uniformidade de mercado, 
-              qualidade reprodutível do iogurte e equidade competitiva entre marcas.
-            </p>
-          </div>
-
-          <div className="leg-intro-card" data-aos="fade-up" data-aos-delay="300">
-            <div className="icon-circle"><i className="fa-solid fa-scale-balanced"></i></div>
-            <h3>Defesa do Consumidor e Rastreabilidade</h3>
-            <p>
-              Estabelece regramentos estritos para rotulagem (declaração de alérgenos, teores de açúcar, tabela de informação 
-              nutricional atualizada), garantindo o direito constitucional à informação segura, e define mecanismos jurídicos 
-              claros para o rastreio total de lotes e eventuais recalls de produtos.
-            </p>
-          </div>
-
-        </div>
-
-        {/* Infográfico do Ciclo Virtuoso de Impacto Legal */}
-        <div className="infographic-box glass-card" data-aos="zoom-in">
-          <h3 className="subsection-title text-center">
-            <i className="fa-solid fa-shield-check"></i> Ciclo Virtuoso dos Impactos da Legislação na Indústria
-          </h3>
-          
-          <div className="infographic-grid">
-            
-            <div className="info-step">
-              <span className="info-num">01</span>
-              <h5>Rigor Legal</h5>
-              <p>Normativas estritas da ANVISA/MAPA implementadas nas rotinas operacionais e auditadas internamente.</p>
+        {/* Grid de Cards de Legislação */}
+        <div className="legislacao-cards-grid">
+          {legislations.map((leg, index) => (
+            <div 
+              key={leg.id}
+              className="leg-card-item glass-card" 
+              data-aos="fade-up" 
+              data-aos-delay={150 + index * 50} 
+              onClick={handleAction}
+            >
+              <div className="leg-card-icon-box">
+                <i className={`fa-solid ${leg.icon}`}></i>
+              </div>
+              <div className="leg-card-info">
+                <span className="leg-card-year">{leg.year}</span>
+                <h3>{leg.title}</h3>
+                <p>{leg.description}</p>
+                <span className="leg-card-action-link">
+                  <i className="fa-solid fa-file-pdf"></i> Acessar Manual
+                </span>
+              </div>
             </div>
-            
-            <div className="info-arrow"><i className="fa-solid fa-angles-right"></i></div>
-            
-            <div className="info-step">
-              <span className="info-num">02</span>
-              <h5>Redução de Falhas</h5>
-              <p>Minimização de contaminações cruzadas, desvios térmicos e descartes de lotes por deterioração.</p>
-            </div>
-            
-            <div className="info-arrow"><i className="fa-solid fa-angles-right"></i></div>
-            
-            <div className="info-step">
-              <span className="info-num">03</span>
-              <h5>Credibilidade</h5>
-              <p>O mercado varejista e os clientes finais confiam na marca, aumentando as vendas e fidelidade.</p>
-            </div>
-            
-            <div className="info-arrow"><i className="fa-solid fa-angles-right"></i></div>
-            
-            <div className="info-step">
-              <span className="info-num">04</span>
-              <h5>Segurança Total</h5>
-              <p>Consumidores saudáveis e bem alimentados, reduzindo custos de saúde pública e protegendo a empresa juridicamente.</p>
-            </div>
-            
-          </div>
+          ))}
         </div>
 
       </div>

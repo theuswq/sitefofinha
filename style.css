@@ -1871,3 +1871,760 @@ a {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   8. SISTEMA DE LEGISLAÇÃO E CONFORMIDADE (NOVO)
+   ========================================================================== */
+
+/* Container do Botão PDF Principal */
+.pdf-action-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+}
+
+.btn-pdf-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 25px rgba(218, 112, 214, 0.35);
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-pdf-primary i {
+    font-size: 1.4rem;
+}
+
+.btn-pdf-primary:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(218, 112, 214, 0.55);
+}
+
+/* Grid de Cards de Legislação */
+.legislacao-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+    margin-top: 30px;
+}
+
+.leg-card-item {
+    display: flex;
+    gap: 20px;
+    padding: 28px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.leg-card-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+    opacity: 0.8;
+}
+
+.leg-card-item:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 36px var(--shadow-soft);
+}
+
+.leg-card-icon-box {
+    width: 54px;
+    height: 54px;
+    border-radius: var(--radius-md);
+    background: var(--lavender-blush);
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .leg-card-icon-box {
+    background: var(--lavender);
+    color: var(--primary-light);
+}
+
+.leg-card-item:hover .leg-card-icon-box {
+    background: var(--primary-dark);
+    color: #ffffff;
+    transform: rotate(10deg) scale(1.05);
+}
+
+.leg-card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.leg-card-year {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+
+.leg-card-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.leg-card-info p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.leg-card-action-link {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .leg-card-action-link {
+    color: var(--primary-light);
+}
+
+.leg-card-item:hover .leg-card-action-link {
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   9. MODAL DO VISUALIZADOR DE PDF
+   ========================================================================== */
+.pdf-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pdf-modal.active {
+    display: flex;
+}
+
+.pdf-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(22, 13, 26, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.pdf-modal-container {
+    position: relative;
+    width: 100%;
+    max-width: 1050px;
+    height: 90vh;
+    background: var(--bg-light);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-glass);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10;
+}
+
+[data-theme="dark"] .pdf-modal-container {
+    background: #170f1b;
+}
+
+/* Header do Modal */
+.pdf-modal-header {
+    padding: 16px 28px;
+    border-bottom: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-cream);
+}
+
+[data-theme="dark"] .pdf-modal-header {
+    background: #23162b;
+}
+
+.pdf-modal-title-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.pdf-header-icon {
+    font-size: 2.2rem;
+    color: var(--danger);
+    filter: drop-shadow(0 2px 8px rgba(230, 57, 70, 0.3));
+}
+
+.pdf-modal-title-info h3 {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.pdf-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.pdf-close-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-glass);
+    background: var(--bg-light);
+    color: var(--text-main);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.pdf-close-btn:hover {
+    background: var(--primary-light);
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+/* Barra de Ferramentas */
+.pdf-modal-toolbar {
+    padding: 10px 28px;
+    border-bottom: 1px solid var(--border-glass);
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+[data-theme="dark"] .pdf-modal-toolbar {
+    background: #190f1e;
+}
+
+.toolbar-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toolbar-divider {
+    width: 1px;
+    height: 24px;
+    background-color: var(--border-glass);
+}
+
+.toolbar-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-glass);
+    background: var(--bg-light);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .toolbar-btn {
+    background: #23162b;
+}
+
+.toolbar-btn:hover {
+    background: var(--primary-light);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+.page-indicator, .zoom-indicator {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Modal Body */
+.pdf-modal-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 40px 20px;
+    background: #3a2e3b;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+[data-theme="dark"] .pdf-modal-body {
+    background: #1b121e;
+}
+
+.pdf-pages-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    transform-origin: top center;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Páginas Individuais */
+.pdf-page {
+    width: 740px;
+    aspect-ratio: 1 / 1.414;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    display: none; /* Emulado um por um */
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
+    position: relative;
+    color: #3d2f3d;
+    box-sizing: border-box;
+}
+
+.pdf-page.active {
+    display: flex;
+}
+
+/* Cabeçalho e Rodapé das páginas do manual */
+.pdf-page-header {
+    font-family: var(--font-heading);
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-dark);
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #DDA0DD;
+    padding-bottom: 6px;
+    margin-bottom: 24px;
+}
+
+.pdf-page-header .right {
+    font-weight: 500;
+    color: #7d6b7d;
+}
+
+.pdf-page-footer {
+    font-family: var(--font-heading);
+    font-size: 8px;
+    font-weight: 500;
+    color: #7d6b7d;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #DDA0DD;
+    padding-top: 6px;
+    margin-top: 24px;
+}
+
+.pdf-page-footer .page-num {
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+/* Decorações da Capa */
+.pdf-page-header-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: var(--primary);
+}
+
+.pdf-page-footer-decor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: var(--primary-light);
+}
+
+/* Conteúdo da Capa */
+.cover-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.pdf-logo-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+    margin-bottom: 30px;
+}
+
+.pdf-logo-box i {
+    font-size: 1.8rem;
+}
+
+.pdf-badge-title {
+    background: var(--primary-dark);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 8px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+
+.pdf-cover-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    line-height: 1.2;
+    color: #3d2f3d;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.pdf-cover-company {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 40px;
+}
+
+.pdf-cover-divider {
+    width: 80px;
+    height: 2px;
+    background: var(--primary-light);
+    margin-bottom: 40px;
+}
+
+.pdf-editable-form {
+    background: var(--bg-cream);
+    padding: 24px 30px;
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--primary-light);
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.pdf-form-label {
+    font-family: var(--font-heading);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
+}
+
+.pdf-editable-input {
+    width: 100%;
+    padding: 6px 10px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    border: 1px solid var(--primary-light);
+    background: #ffffff;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    color: #3d2f3d;
+}
+
+.pdf-editable-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(218, 112, 214, 0.3);
+}
+
+.pdf-form-static-date {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #3d2f3d;
+    margin-bottom: 0;
+}
+
+.pdf-cover-footer {
+    font-family: var(--font-body);
+    font-size: 9px;
+    color: #7d6b7d;
+    line-height: 1.4;
+}
+
+.pdf-cover-footer .sub {
+    font-weight: 700;
+}
+
+/* Conteúdo das Páginas de Texto */
+.pdf-page-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pdf-page-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 6px;
+}
+
+.pdf-page-content h3 {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #3d2f3d;
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+.pdf-page-content p {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #3d2f3d;
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.pdf-highlight-box {
+    background: var(--bg-cream);
+    border-left: 3px solid var(--primary);
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin: 12px 0;
+}
+
+.pdf-highlight-box strong {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--primary-dark);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.pdf-highlight-box p {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+}
+
+/* Fluxograma em tabela para o manual */
+.pdf-flow-table {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.pdf-flow-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 16px;
+    border-bottom: 1px solid #FFE4E1;
+    padding-bottom: 10px;
+}
+
+.pdf-flow-row:last-child {
+    border-bottom: none;
+}
+
+.pdf-flow-col-left {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.pdf-flow-col-right {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #3d2f3d;
+}
+
+.pdf-ref-list li {
+    font-size: 0.78rem;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+/* Animações */
+.animate-scale-up {
+    animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsividade do Modal */
+@media (max-width: 768px) {
+    .pdf-page {
+        width: 100%;
+        padding: 30px 20px;
+    }
+    .pdf-modal-container {
+        height: 95vh;
+    }
+    .pdf-modal-header {
+        padding: 12px 20px;
+    }
+    .pdf-modal-toolbar {
+        padding: 8px 16px;
+        gap: 10px;
+    }
+    .pdf-cover-title {
+        font-size: 1.3rem;
+    }
+    .pdf-editable-form {
+        padding: 16px 20px;
+    }
+    .pdf-flow-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+}
+
+/* ==========================================================================
+   10. PRINT MEDIA STYLES (IMPRESSÃO DO MANUAL)
+   ========================================================================== */
+@media print {
+    /* Esconder tudo do site */
+    body * {
+        visibility: hidden;
+    }
+    
+    /* Mostrar apenas o visualizador de PDF */
+    #pdfViewerModal,
+    #pdfViewerModal * {
+        visibility: visible;
+    }
+    
+    /* Configurar modal para impressão limpa de documento */
+    #pdfViewerModal {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background: none !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+    
+    .pdf-modal-overlay,
+    .pdf-modal-header,
+    .pdf-modal-toolbar,
+    .pdf-close-btn {
+        display: none !important;
+    }
+    
+    .pdf-modal-container {
+        border: none !important;
+        box-shadow: none !important;
+        background: none !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+    
+    .pdf-modal-body {
+        background: none !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        height: auto !important;
+        display: block !important;
+    }
+    
+    .pdf-pages-container {
+        display: block !important;
+        transform: none !important;
+        width: 100% !important;
+    }
+    
+    /* Mostrar todas as páginas em sequência de quebra para impressão */
+    .pdf-page {
+        display: flex !important; /* Obriga todas as páginas a ficarem visíveis */
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 40px !important;
+        width: 100% !important;
+        height: 297mm !important; /* Tamanho A4 oficial */
+        page-break-after: always !important; /* Quebra de página */
+        box-sizing: border-box !important;
+        background: #ffffff !important;
+        color: #3d2f3d !important;
+    }
+    
+    .pdf-editable-input {
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        font-weight: bold !important;
+    }
+}
+
