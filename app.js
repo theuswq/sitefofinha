@@ -624,19 +624,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =====================================================================
-    // FAB — Botão Explorar Seções (abre o drawer)
+    // FAB — Botão Explorar Seções (abre o drawer) — sempre visível no mobile
     // =====================================================================
     const exploreFab = document.getElementById('exploreFab');
 
     if (exploreFab) {
-        // Mostrar FAB após scroll inicial
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 200) {
+        // Verificar se é mobile
+        const isMobile = () => window.innerWidth <= 992;
+
+        // No mobile, sempre visível; no desktop, após scroll
+        const updateFabVisibility = () => {
+            if (isMobile()) {
+                exploreFab.classList.add('visible');
+            } else if (window.pageYOffset > 200) {
                 exploreFab.classList.add('visible');
             } else {
                 exploreFab.classList.remove('visible');
             }
-        });
+        };
+
+        updateFabVisibility();
+        window.addEventListener('scroll', updateFabVisibility);
+        window.addEventListener('resize', updateFabVisibility);
 
         exploreFab.addEventListener('click', () => {
             openDrawer();
@@ -649,27 +658,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =====================================================================
-    // MOBILE NAV BAR — Pill ativo via Intersection Observer + auto-scroll
+    // MOBILE NAV BAR — Removido (substituído pelo Drawer)
     // =====================================================================
-    const mobileNavPills = document.querySelectorAll('.mobile-nav-pill');
 
-    function updateMobileNavPill(sectionId) {
-        mobileNavPills.forEach(pill => {
-            pill.classList.remove('active');
-            if (pill.getAttribute('data-section') === sectionId) {
-                pill.classList.add('active');
-                // Auto-scroll para centrar o pill ativo na barra
-                const navScroll = document.querySelector('.mobile-nav-scroll');
-                if (navScroll) {
-                    const pillLeft = pill.offsetLeft;
-                    const pillWidth = pill.offsetWidth;
-                    const scrollCenter = pillLeft - navScroll.offsetWidth / 2 + pillWidth / 2;
-                    navScroll.scrollTo({ left: scrollCenter, behavior: 'smooth' });
-                }
-            }
-        });
+    // Atualizar link ativo no drawer durante scroll
+    const allSections = document.querySelectorAll('section[id]');
+    const sectionIds = new Set([
+        'home', 'sobre', 'legislacao', 'marcos-legais', 'manual-bpf',
+        'higiene-pessoal', 'instalacoes', 'processos', 'processo-fluxograma',
+        'higienizacao', 'controle-pragas', 'gestao-residuos',
+        'qualidade-dashboard', 'sustentabilidade', 'conclusao', 'referencias'
+    ]);
 
-        // Atualizar drawer links também
+    function updateDrawerActiveLink(sectionId) {
         drawerLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('data-section') === sectionId) {
@@ -678,19 +679,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Observer para seções — atualiza pill ativo automaticamente no scroll
-    const allSections = document.querySelectorAll('[id]');
-    const sectionIds = new Set([
-        'home', 'sobre', 'legislacao', 'marcos-legais', 'manual-bpf',
-        'higiene-pessoal', 'instalacoes', 'processos', 'processo-fluxograma',
-        'higienizacao', 'controle-pragas', 'gestao-residuos',
-        'qualidade-dashboard', 'sustentabilidade', 'conclusao', 'referencias'
-    ]);
-
-    const mobileNavObserver = new IntersectionObserver((entries) => {
+    const drawerObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && sectionIds.has(entry.target.id)) {
-                updateMobileNavPill(entry.target.id);
+                updateDrawerActiveLink(entry.target.id);
             }
         });
     }, {
@@ -700,18 +692,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     allSections.forEach(section => {
         if (sectionIds.has(section.id)) {
-            mobileNavObserver.observe(section);
+            drawerObserver.observe(section);
         }
-    });
-
-    // Clique nos pills da nav mobile
-    mobileNavPills.forEach(pill => {
-        pill.addEventListener('click', (e) => {
-            const sectionId = pill.getAttribute('data-section');
-            // Feedback visual imediato
-            mobileNavPills.forEach(p => p.classList.remove('active'));
-            pill.classList.add('active');
-        });
     });
 
 });
